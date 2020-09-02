@@ -1,36 +1,40 @@
 import React from 'react';
 import './style.css';
 import Card from '../../components/UI/Card/Card';
-import Sidebar from '../../components/Sidebar/Sidebar';
 import PostContainer from './PostContainer/PostContainer';
+import blog from '../../data/blog.json'
+import Layout from '../../components/Layout/Layout';
 
 const Home = (props) => {
-
+    const imgArr = blog.data.map(post=>post.blogImage);
+    const sideImg = imgArr.slice(1,4);
     return (
         <div>
             <Card>
                 <div className="gallaryPost">
+
                     <section className="mainImageWraper" style={{width:'70%'}}>
                         <div className="mainImage">
-                            <img src="https://gdurl.com/1aXsb" alt=""/>
+                            <img src={imgArr[0]} alt=""/>
                         </div>
                     </section>
                     <section className="sideImageWraper" style={{width:'30%'}}>
-                        <div className="sideImage">
-                            <img src="https://gdurl.com/1aXsb" alt=""/>
-                        </div>
-                        <div className="sideImage">
-                            <img src="https://gdurl.com/u-nZ" alt=""/>
-                        </div>
-                        <div className="sideImage">
-                            <img src="https://gdurl.com/Yh-d" alt=""/>
-                        </div>
+                        {
+                            sideImg.map(img=>{
+                               return (
+                                    <div className="sideImage">
+                                        <img src={img} alt=""/>
+                                    </div>
+                                )
+                            })
+                        }
                     </section>
                 </div>                
             </Card>
             <section className="homeContainer">
-                <PostContainer style={{width: '70%'}} />
-                <Sidebar />
+                <Layout>
+                    <PostContainer style={{width: '70%'}} blog={blog}/>
+                </Layout>
             </section>
         </div>
     );
