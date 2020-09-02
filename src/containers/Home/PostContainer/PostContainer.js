@@ -36,7 +36,9 @@ const PostContainer = (props) => {
                     )
                 })
             }
-            <Pagination postPerPage={postPerPage} totalPosts={posts.length} paginate={paginate} />
+            <div>
+                <Pagination postPerPage={postPerPage} totalPosts={posts.length} paginate={paginate} />
+            </div>
         </div>
     );
 };

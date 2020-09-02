@@ -1,0 +1,13 @@
+nav{
+    display: flex;
+}
+li{
+    list-style: none;
+    padding-right: 10px;
+    width: 30px;
+    height: 34px;
+    border: 1px solid slategray;
+    text-align: center;
+    font-weight: 400;
+    font-size: 30px;
+}
